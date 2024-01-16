@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Inicio de Sesión</title>
+</head>
+<body>
+    <h2>Inicio de Sesión</h2>
+    <?php
+    // Variables para almacenar el nombre de usuario y la contraseña
+    $usuario = "";
+    $contraseña = "";
+
+    // Mensaje de error
+    $mensaje = "";
+
+    // Verificar si se ha enviado el formulario
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Obtener los valores del formulario
+        $usuario = $_POST["usuario"];
+        $contraseña = $_POST["contraseña"];
+
+        // Verificar las credenciales (en este caso, usuario=admin, contraseña=password)
+        if ($usuario === "admin" && $contraseña === "password") {
+            $mensaje = "Inicio de sesión exitoso. Bienvenido, $usuario!";
+        } else {
+            $mensaje = "Credenciales incorrectas. Por favor, inténtalo de nuevo.";
+        }
+    }
+    ?>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" value="<?php echo $usuario; ?>" required><br><br>
+
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" required><br><br>
+
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+    <p><?php echo $mensaje; ?></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+        Medida: <input type="text" name="medida">
+        <select name="unidad1">
+            <option value="pulgada">Pulgada</option>
+            <option value="pie">Pie</option>
+            <option value="yardas">Yardas</option>
+            <option value="millas">Millas</option>
+        </select>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
