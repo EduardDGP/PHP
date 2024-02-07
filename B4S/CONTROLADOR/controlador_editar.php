@@ -1,6 +1,6 @@
 <?php
 require_once '../MODELO/modelo_editar.php';
-
+require '../VISTA/editar.php';
 require '../MODELO/bbdd.php';
 
 // Verificar si se proporciona el nombre del producto
@@ -18,6 +18,7 @@ require '../MODELO/bbdd.php';
         echo "El producto no se ha encontrado.";
     }
     // Mostrar mensaje si no se proporciona el nombre del producto
-    require '../VISTA/editar.php';
+
+
 ?>
 

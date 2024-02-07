@@ -1,6 +1,8 @@
 <?php
 // Incluir el archivo de modelo
 require_once '../MODELO/modelo_listado.php';
+// Incluir el archivo de conexión a la base de datos
+require_once '../MODELO/bbdd.php';
 
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -8,8 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $selectedFamilia = $_POST["familia"];
 
     try {
-        
-        $productos = obtenerProductos($selectedFamilia);
+        // Establecer la conexión PDO
+        $pdo = conectarBDPDO();
+
+        // Preparar y ejecutar la consulta para obtener productos de la familia seleccionada
+        $query = $pdo->prepare("SELECT COD, NOMBRE_CORTO, PVP FROM PRODUCTO WHERE FAMILIA = ?");
+        $query->execute([$selectedFamilia]);
+
+        // Bandera para verificar si hay productos
+        $productosExistentes = false;
 
         // Encabezado para los productos de la familia seleccionada
         echo "<h2>Productos de la familia seleccionada:</h2>";
