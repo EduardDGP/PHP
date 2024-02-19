@@ -10,7 +10,7 @@
         <h1>Editar Producto: <?php echo $producto['NOMBRE_CORTO']; ?></h1>
         <form action="actualizar.php" method="post">
             <!-- No necesitamos un campo oculto para el código -->
-            <label for="nombreCorto">Nombre Corto:</label>
+            <label for="nombreCorto">Nombre corto:</label>
             <input type="text" name="nombreCorto" value="<?php echo $producto['NOMBRE_CORTO']; ?>" required><br>
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" value="<?php echo $producto['NOMBRE']; ?>"><br>
